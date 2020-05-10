@@ -4,24 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D7EEFF"
+    android:background="@color/colorbackr"
     tools:context=".NotepadActivity">
 
-    <!-- Bottom app bar -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/openNoteBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/plus_icon"
-        app:layout_anchor="@id/bottom_bar"/>
-
-
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottom_bar"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_notes_list"
         android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:layout_gravity="bottom"
-        app:backgroundTint="@color/colorPrimary"
-        app:fabCradleRoundedCornerRadius="20dp"></com.google.android.material.bottomappbar.BottomAppBar>
+        android:layout_height="715dp"
+        android:layout_marginTop="20dp"
+        android:fadingEdgeLength="100dp"
+        app:reverseLayout="false" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        app:itemIconTint="@color/cardview_light_background"
+        app:itemTextColor="@color/cardview_light_background"
+        android:background="@color/colorPrimary"
+        app:menu="@menu/bot_nav"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

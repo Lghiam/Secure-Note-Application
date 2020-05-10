@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#20639B</color>
-    <color name="colorPrimaryDark">#173F5F</color>
-    <color name="colorAccent">#173F5F</color>
+    <color name="colorPrimary">#283593</color>
+    <color name="colorPrimaryDark">#283593</color>
+    <color name="colorAccent">#283593</color>
+    <color name="colorbackr">#283593</color>
 </resources>
+
+<!--#37474F previous one liam this the one you did today
+
+
+previous vers
+<resources>
+    <color name="colorPrimary">#4527A0</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#311B92</color>
+</resources>
+
+
+
+-->

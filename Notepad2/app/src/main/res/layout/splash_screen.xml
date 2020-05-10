@@ -7,7 +7,6 @@
     android:background="@color/colorPrimary"
     tools:context=".SplashScreen">
 
-
     <ImageView
         android:layout_width="144dp"
         android:layout_height="395dp"
@@ -16,9 +15,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5"
-        app:srcCompat="@drawable/notepadicon2" />
-
-
+        app:layout_constraintVertical_bias="0.47000003"
+        app:srcCompat="@drawable/knlogowhite" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,7 +24,9 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputLayout inputEmail, inputPass;
     private Button btnLogin;
     private FirebaseAuth fAuth;
-
+    //
+    int attempt=1;
+    //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +34,11 @@ public class LoginActivity extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
 
+
         inputEmail = (TextInputLayout) findViewById(R.id.input_log_email);
         inputPass = (TextInputLayout) findViewById(R.id.input_log_pass);
         btnLogin = (Button) findViewById(R.id.btn_log);
+
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,17 +46,39 @@ public class LoginActivity extends AppCompatActivity {
                 String logEmail = inputEmail.getEditText().getText().toString().trim();
                 String logPass = inputPass.getEditText().getText().toString().trim();
 
-                if(!TextUtils.isEmpty(logEmail) && !TextUtils.isEmpty(logPass)){
-                    login(logEmail, logPass);
+                //Login Attempt Counter
+                if(attempt<5){
+                    //Login form validation
+                    if(!TextUtils.isEmpty(logEmail) && !TextUtils.isEmpty(logPass)){
+                        if (logPass.length()>7){
+                            login(logEmail, logPass);
+                        }
+                        else{
+                            Toast.makeText(LoginActivity.this, "Password requires 8 or more characters", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
+                    else{
+                        Toast.makeText(LoginActivity.this, "Empty fields", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    //
                 }
+                else if (attempt==8){
+                    System.exit(0);
+                }
+                attempt++;
             }
         });
     }
+
+
 
     private void login(String email, String password){
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Logging in...");
         progressDialog.show();
+
 
         fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -62,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(mainIntent);
                     finish();
 
-                    Toast.makeText(LoginActivity.this, "Sign in successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Sign-in successful", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     progressDialog.dismiss();

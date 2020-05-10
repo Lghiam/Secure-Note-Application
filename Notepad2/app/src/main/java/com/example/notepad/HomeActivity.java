@@ -12,10 +12,9 @@ package com.example.notepad;
         import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity {
-    //button variables
+
     private Button login1;
     private Button create1;
-    private Button notepad;
     private FirebaseAuth fAuth;
 
     @Override
@@ -24,12 +23,10 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         fAuth = FirebaseAuth.getInstance();
-
-        //declaring variables
         login1 = (Button) findViewById(R.id.login1);
         create1 = (Button) findViewById(R.id.create1);
-
         updateUI();
+
 
         login1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,13 +44,13 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-
+    //home to register button function
     private void register(){
         Intent regIntent = new Intent(HomeActivity.this, RegisterActivity.class);
         startActivity(regIntent);
     }
 
-
+    //home to login button function
     private void login(){
         Intent logIntent = new Intent(HomeActivity.this, LoginActivity.class);
         startActivity(logIntent);
@@ -74,5 +71,14 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+
+    //close application when back button is pressed
+    public void onBackPressed() {
+        //do nothing
+        Intent a = new Intent(Intent.ACTION_MAIN);
+        a.addCategory(Intent.CATEGORY_HOME);
+        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(a);
+    }
 
 }

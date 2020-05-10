@@ -4,36 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D7EEFF"
+    android:background="#FFFFFF"
+    android:longClickable="false"
     tools:context=".NotepadActivity">
 
     <!-- Bottom app bar -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/plus_icon"
-        app:layout_anchor="@id/bottom_bar"/>
-
-
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottom_bar"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:layout_gravity="bottom"
-        app:backgroundTint="@color/colorPrimary"
-        app:fabCradleRoundedCornerRadius="20dp"></com.google.android.material.bottomappbar.BottomAppBar>
-
+        android:layout_gravity="bottom|center"
+        android:layout_margin="30dp"
+        android:backgroundTint="#000000"
+        android:src="@drawable/savewhite" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="638dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/etTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
             android:background="@android:color/transparent"
             android:hint="Title"
@@ -41,8 +37,9 @@
             android:textSize="24sp" />
 
         <EditText
+            android:id="@+id/etContent"
             android:layout_width="match_parent"
-            android:layout_height="466dp"
+            android:layout_height="474dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:background="@android:color/transparent"
@@ -50,6 +47,22 @@
             android:hint="Note"
             android:inputType="textMultiLine"
             android:padding="10dp" />
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/backarrowBtn"
+        android:layout_width="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_height="30dp"
+        android:background="@drawable/arrow_icon" />
+
+    <Button
+        android:id="@+id/binBtn"
+        android:visibility="invisible"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="365dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/delete_icon" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
